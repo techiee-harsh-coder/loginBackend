@@ -20,7 +20,9 @@ mongoose.connect(process.env.MONGO_URI)
 // Routes
 app.use('/api/auth', require('./router/authRouter'));
 app.use('/api/auth', require('./router/SignupRouter'));
-app.use("/verses",   require('./router/verseRoutes'));
+app.use("/verses",   (req,res)=>{
+  res.send("Hello from Verses");
+});
 app.use("/api/chapter2",  require('./router/verse1Routes'));
 
 // Start server
